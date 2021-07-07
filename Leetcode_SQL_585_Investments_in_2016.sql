@@ -1,3 +1,5 @@
+--Question: https://leetcode.jp/problemdetail.php?id=585
+
 SELECT SUM(TIV_2016) AS TIV_2016
 FROM insurance
 WHERE TIV_2015 = 
