@@ -1,3 +1,5 @@
+-- Question: https://leetcode.jp/problemdetail.php?id=176
+
 -- Creating Data
 CREATE TABLE Employee (
   `Id` INTEGER,
