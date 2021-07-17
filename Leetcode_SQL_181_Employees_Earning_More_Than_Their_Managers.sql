@@ -12,7 +12,7 @@ LEFT JOIN
   FROM Employee
   WHERE ManagerID LIKE "NULL"
 ) AS Manager ON Manager.Id = Employee.ManagerId
-WHERE Employee.Salary > Manager.Salary
+WHERE Employee.Salary > Manager.Salary;
 
 /*
 March 2021 Solution
@@ -22,7 +22,7 @@ SELECT Employee.Name AS Employee
 FROM Employee
 INNER JOIN Employee AS Manager
 ON Employee.ManagerId = Manager.Id
-WHERE Employee.Salary > Manager.Salary
+WHERE Employee.Salary > Manager.Salary;
 
 /*
 Revised March solution
@@ -32,4 +32,4 @@ SELECT Employee.Name AS Employee
 FROM Employee AS Manager
 INNER JOIN Employee AS Employee
 ON Manager.Id = Employee.ManagerId
-WHERE Employee.Salary > Manager.Salary
+WHERE Employee.Salary > Manager.Salary;
