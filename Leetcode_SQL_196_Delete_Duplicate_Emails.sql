@@ -22,9 +22,10 @@ July 2021 solution
 Thoughts: JOIN ON clause decides the table name! (silimar to Leetcide_SQL_181)
 */
 DELETE p2.* 
-FROM Person p1
+FROM Person AS p1
 INNER JOIN Person AS p2
-ON p2.Email = p1.Email AND p1.Id < p2.Id;
+ON p2.Email = p1.Email 
+AND p1.Id < p2.Id;
 
 SELECT *
 FROM Person;
@@ -32,9 +33,11 @@ FROM Person;
 /*
 April 2021 solution
 */
-DELETE p1 FROM Person AS p1 
+DELETE p1 
+FROM Person AS p1 
 INNER JOIN Person AS p2
 ON p1.Email = p2.Email
 WHERE p1.Id > p2.Id;
 
-SELECT * FROM Person;
+SELECT * 
+FROM Person;
