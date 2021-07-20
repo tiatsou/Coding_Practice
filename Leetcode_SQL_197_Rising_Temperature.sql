@@ -37,3 +37,4 @@ SELECT w2.Id_INT_ AS ID
 FROM Weather AS w1
 INNER JOIN Weather AS w2 ON DATE(w1.RecordDate_DATE_)+1 = DATE(w2.RecordDate_DATE_)
 WHERE w2.Temperature_INT_ > w1.Temperature_INT_;
+
