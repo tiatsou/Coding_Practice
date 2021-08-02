@@ -95,7 +95,7 @@ HAVING Request_at BETWEEN '2013-10-01' AND '2013-10-03';
 Apr 2021 Solution
 Thought: CASE WHEN
 */
-SELECT DATE(Request_at) AS Day, ROUND(SUM(CASE WHEN Statuss LIKE 'cancelled%' THEN 1 ELSE 0 END)/ COUNT(*),2) AS 'Cancellation Rate'
+SELECT DATE(Request_at) AS Day, ROUND(SUM(CASE WHEN Status LIKE 'cancelled%' THEN 1 ELSE 0 END)/ COUNT(*),2) AS 'Cancellation Rate'
 FROM Trips AS t
 LEFT JOIN Users AS u1
 ON u1.Users_Id = t.Client_Id 
@@ -109,7 +109,7 @@ GROUP BY Request_at;
 Apr 2021 Solution
 Thought: IF
 */
-SELECT DATE(Request_at) AS Day, ROUND(SUM(IF(Statuss LIKE 'cancelled%', 1, 0))/ COUNT(*),2) AS 'Cancellation Rate'
+SELECT DATE(Request_at) AS Day, ROUND(SUM(IF(Status LIKE 'cancelled%', 1, 0))/ COUNT(*),2) AS 'Cancellation Rate'
 FROM Trips AS t
 LEFT JOIN Users AS u1
 ON u1.Users_Id = t.Client_Id 
