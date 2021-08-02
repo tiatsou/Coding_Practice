@@ -64,6 +64,34 @@ GROUP BY Request_at
 HAVING Request_at BETWEEN '2013-10-01' AND '2013-10-03';
 
 /*
+July 2021 Solution
+Thought: Without JOIN
+*/
+
+SELECT DATE(Request_at) AS Day, ROUND(SUM(CASE WHEN Status LIKE 'cancelled%' THEN 1 ELSE 0 END) / COUNT(*), 2) AS `Cancellation Rate`
+FROM
+(
+  SELECT *
+  FROM Trips
+  WHERE Client_Id IN
+  (
+    SELECT Users_Id 
+    FROM Users
+    WHERE Banned = 'No'
+    AND Role = 'client'
+  )
+  AND Driver_Id IN
+  (
+    SELECT Users_Id 
+    FROM Users
+    WHERE Banned = 'No'
+    AND Role = 'driver'
+  )
+) AS subq
+GROUP BY Request_at
+HAVING Request_at BETWEEN '2013-10-01' AND '2013-10-03';
+
+/*
 Apr 2021 Solution
 Thought: CASE WHEN
 */
