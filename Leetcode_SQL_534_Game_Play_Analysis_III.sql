@@ -22,7 +22,8 @@ VALUES
 Aug 2021 Solution
 Thoughts: Window Function
 */
-SELECT player_id, DATE(event_date) AS event_date, SUM(games_played) OVER(PARTITION BY player_id ORDER BY DATE(event_date) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS `games_played_so_far`
+SELECT player_id, DATE(event_date) AS event_date, 
+SUM(games_played) OVER(PARTITION BY player_id ORDER BY DATE(event_date) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS `games_played_so_far`
 FROM Activity;
 
 /*
