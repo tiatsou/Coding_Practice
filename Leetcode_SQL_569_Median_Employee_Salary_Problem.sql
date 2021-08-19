@@ -5,7 +5,7 @@
 August 2021 Solution
 Thoughts: RANK(), CTE
 NOTE: 	1. no need to use DENSE_RANK as it will order by Id(unique) when ranking.
-	2. need to ORDER BY Id as well when ranking as we need to get the "position number" to find the median(depends on even and odd).
+	2. need to ORDER BY Id as well when ranking as we need to get the "position number" to find the median(depends on even and odd of the count).
 */
 WITH temp AS (
   SELECT *, RANK() OVER(PARTITION BY Company ORDER BY Salary, Id)
