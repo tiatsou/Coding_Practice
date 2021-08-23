@@ -34,6 +34,7 @@ AND
 
 /*
 April 2021 Solution
+Thoughts: FROM t1, t2
 */
 SELECT AVG(Number) AS Median
 FROM 
